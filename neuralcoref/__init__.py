@@ -28,14 +28,15 @@ if os.path.exists(NEURALCOREF_MODEL_PATH) and os.path.exists(
 else:
     if not os.path.exists(NEURALCOREF_MODEL_PATH):
         os.makedirs(NEURALCOREF_MODEL_PATH, exist_ok=True)
-    logger.info(f"Getting model from {NEURALCOREF_MODEL_URL} or cache")
-    downloaded_model = cached_path(NEURALCOREF_MODEL_URL)
+    logger.info(f"You don't have the model file in the cache folder. Look at __init__.py")
+    local_model = None
+    #downloaded_model = cached_path(NEURALCOREF_MODEL_URL)
 
-    logger.info(
-        f"extracting archive file {downloaded_model} to dir {NEURALCOREF_MODEL_PATH}"
-    )
-    with tarfile.open(downloaded_model, "r:gz") as archive:
-        archive.extractall(NEURALCOREF_CACHE)
+    #logger.info(
+    #    f"extracting archive file {downloaded_model} to dir {NEURALCOREF_MODEL_PATH}"
+    #)
+    #with tarfile.open(downloaded_model, "r:gz") as archive:
+    #    archive.extractall(NEURALCOREF_CACHE)
 
 
 def add_to_pipe(nlp, **kwargs):
